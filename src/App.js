@@ -7,7 +7,6 @@ import styled from "styled-components";
 import iota_bot_img from "./assets/images/Freibier_NFT.jpg";
 import ClipLoader from "react-spinners/ClipLoader";
 import { nft } from "./config";
-import ReactPlayer from "react-player";
 
 export const StyledButton = styled.button`
   padding: 10px;
