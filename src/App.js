@@ -162,7 +162,7 @@ function App() {
                 Mint {nft.name} now!
               </s.TextTitle>
               <ReactPlayer
-                url={'/assets/Spacebots_Cartridge.mp4'}
+                url={nft.sale_image}
                 playing={true}
                 loop={true}
                 muted={true}
