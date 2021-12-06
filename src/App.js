@@ -4,7 +4,7 @@ import { connect } from "./redux/blockchain/blockchainActions";
 import { fetchData } from "./redux/data/dataActions";
 import * as s from "./styles/globalStyles";
 import styled from "styled-components";
-import iota_bot_img from "./assets/images/Game.png";
+import iota_bot_img from "./assets/images/Freibier_NFT.jpg";
 import ClipLoader from "react-spinners/ClipLoader";
 import { nft } from "./config";
 import ReactPlayer from "react-player";
@@ -54,12 +54,15 @@ export const StyledImg = styled.img`
 
 export const StyledNFT = styled.img`
   /* width: 100%; */
-  height: 100%;
+  width: 100%;
+  width: 100%;
   max-width: 350px;
   @media (min-width: 767px) {
     max-width: 350px;
     /* height: 350px; */
+    width: 100%;
     height: 100%;
+    max-height: 350px;
   }
   transition: width 0.5s;
   transition: height 0.5s;
@@ -161,24 +164,17 @@ function App() {
               >
                 Mint {nft.name} now!
               </s.TextTitle>
-              <ReactPlayer
-                url={nft.sale_image}
-                playing={true}
-                loop={true}
-                muted={true}
-                width={"100%"}
-                height={"100%"}
-                style={
-                  {maxWidth: '350px'}
-                }
-              />
+              <s.SpacerLarge />
+              <StyledNFT src={iota_bot_img}></StyledNFT>
               <s.SpacerMedium />
+
+
 
               <s.SpacerMedium />
               <s.TextTitle
                 style={{ textAlign: "center", fontSize: 35, fontWeight: "bold" }}
               >
-                {data.totalSupply ? `${parseInt(data.totalSupply)} / 1001` : ""}
+                {data.totalSupply ? `${parseInt(data.totalSupply)} / 1000` : ""}
               </s.TextTitle>
             </s.Container>
             <s.SpacerMedium />
@@ -198,7 +194,7 @@ function App() {
                 </>
               ) : (
                 <>
-                  {Number(data.totalSupply) === 1001 ? (
+                  {Number(data.totalSupply) === 1000 ? (
                     <>
                       <s.TextTitle style={{ textAlign: "center" }}>
                         Sorry - the sale has ended.
@@ -291,12 +287,9 @@ function App() {
                   data.nfts.map((_nft, i) => (
                     <s.Card>
                       <s.TextDescription style={{ textAlign: "center", fontSize: 16 }}>
-                        SPACEBOTS #{_nft}
+                       Freibier Nummer: {_nft}
                       </s.TextDescription>
                       <br />
-                      <s.TextTitle style={{ textAlign: "center" }}>
-                        <a rel="noreferrer" target="_blank" href="https://gateway.pinata.cloud/ipfs/QmZAiQCXxGUzgtVTqtbzJtFrqrKkiueNDMMxM5xqDXPbpo">Play</a>
-                      </s.TextTitle>
                       <StyledNFT class src={iota_bot_img}></StyledNFT>
                     </s.Card>
                   ))
